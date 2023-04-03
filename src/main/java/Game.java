@@ -10,31 +10,32 @@ public class Game {
     }
 
 
-        public int round(String playerName1, String playerName2) {
-            Player player1 = findByName(playerName1);
-            Player player2 = findByName(playerName2);;
-            if (player1 == null) {
-                throw new NotRegisteredExcepction(playerName1);
-            }
-            if (player2 == null) {
-                throw new NotRegisteredExcepction(playerName2);
-            }
-            if (player1.getStrenght() > player2.getStrenght()) {
-                return 1;
-            }
-            if (player1.getStrenght() < player2.getStrenght()) {
-                return 2;
-            }
-            return 0;
+    public int round(String playerName1, String playerName2) {
+        Player player1 = findByName(playerName1);
+        Player player2 = findByName(playerName2);
+        ;
+        if (player1 == null) {
+            throw new NotRegisteredExcepction(playerName1);
         }
+        if (player2 == null) {
+            throw new NotRegisteredExcepction(playerName2);
+        }
+        if (player1.getStrenght() > player2.getStrenght()) {
+            return 1;
+        }
+        if (player1.getStrenght() < player2.getStrenght()) {
+            return 2;
+        }
+        return 0;
+    }
 
-        public Player findByName(String name) {
-            for (Player player : players) {
-                if (player.getName() == name) {
-                    return player;
-                }
+    public Player findByName(String name) {
+        for (Player player : players) {
+            if (player.getName() == name) {
+                return player;
             }
-            return null;
         }
+        return null;
+    }
 
 }
